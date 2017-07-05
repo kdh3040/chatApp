@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<TITLE> 심쿵 </TITLE>
+<html lang="ko">
+<head>
+
+
+    <meta name="viewport"  content="width=device-width, initial-scale=1.0,
+    minimum-scale=1.0, user-scalabel=no" charset="utf-8" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <style>
+    #main_header{
+      height: :45px;
+      background: url(http://cafefiles.naver.net/data21/2008/2/2/115/6_dptmf07.jpg);
+    }
+    </style>
+</head>
+
+<?php
+  include "Data.php";
+  $aa = new Test('asdasd');
+
+    $cnt = count($aa->Name);
+    $name = array();
+    $Age = array();
+    $Photo = array();
+
+    for($i = 0; $i < $cnt; $i++)
+    {
+      $Name[$i] = $aa->Name($i);
+      $Age[$i] = $aa->Age($i);
+      $Photo[$i] = $aa->Photo($i);
+    }
+
+
+  $aa = NULL;
+
+
+?>
+
+<body>
+  <div data-role="page">
+      <div data-role="header">
+        <h1>asdasdasd</h1>
+
+          <span>
+              <a href="">메뉴</a>
+              <a href="">채팅</a>
+              <a href="">카드리스트</a>
+          </span>
+      </div>
+
+
+
+    <div data-role="header">
+
+        <span>
+          <TABLE border="1">
+          <tr>
+              <td> <a href="index.html" data-transition="slide">소개팅</a> </td>
+              <td> <a href="matching.html" data-transition="slide">심쿵매칭</a> </td>
+              <td> <a href="choice1.html" data-transition="slide">초이스</a> </td>
+              <td> <a href="">접속중</a> </td>
+              <td> <a href="test.html" data-transition="slide">게시판</a> </td>
+
+          </tr>
+        </TABLE>
+        </span>
+    </div>
+    <div data-role="content">
+      <div data-role="listview">
+        <TABLE border="1">
+            <?
+            for ($i = 0 ; $i < $cnt; $i++)
+            {
+            ?>
+            <tr>
+                <td>
+                    <p> 이름 : <? echo $Name[$i] ?> </p>
+                    <p> 나이 : <? echo $Age[$i] ?> </p>
+                </td>
+                <td>
+                    <a href=""><img src= <? echo $Photo[$i] ?> width ="200px" height="200px" /></a>
+                </td>
+            </tr>
+            <?
+            }
+            ?>
+
+        </TABLE>
+</div>
+    </div>
+    <div data-role="content">
+        <span>
+            <a href="">다음 매칭</a>
+            <a href="">찜하기</a>
+        </span>
+    </div>
+        </div>
+</body>
+</html>
